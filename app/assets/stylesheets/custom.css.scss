@@ -1,19 +1,19 @@
 @import "bootstrap";
 
 body {
-	background-color: #F5F5F1;
+	background-color: #FFFFFF;
 	color: #333333;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar-default{
-	background-color: #EFEFEB;
+	background-color: #FFFFFF;
 }
 
 .navbar-default .navbar-brand{
 	font-family: guardian-egypt, georgia, serif;
 	font-weight: 400;
-	color: #d5641c;
+	color: #A6250F;
 	font-size: 30px;
 }
 
@@ -50,7 +50,8 @@ body {
 }
 
 .jumbotron{
-	background-image: url('https://dl.dropboxusercontent.com/s/payx120yqd3vrda/jumbotron.png?dl=0');
+	background-color: #3686BE;
+//	background-image: url('https://dl.dropboxusercontent.com/s/payx120yqd3vrda/jumbotron.png?dl=0');
 	h1, h2{
 	font-family: guardian-egyptt, georgia, serif;
 	}
