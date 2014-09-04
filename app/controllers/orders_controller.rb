@@ -27,27 +27,23 @@ class OrdersController < ApplicationController
     @order.buyer_id = current_user.id
     @order.seller_id = @seller.id
 
-    Stripe.api_key = ENV["STRIPE_API_KEY"]
-    token = params[:stripeToken]
-
-
+    Conekta.api_key = ENV["CONEKTA_API_KEY"]
+    
+    
 
     begin
-      charge = Stripe::Charge.create(
+      charge = Conekta::Charge.create(
+        :currency => "MXN",
         :amount => (@listing.price * 100).floor,
-        :currency => "usd",
-        :card => token
+        :description => "Seller ID > Buyer ID: " + (@order.seller_id.to_s) +" > "+ (@order.buyer_id.to_s),
+        :reference_id => (@order.listing_id),
+        :card => params[:conektaTokenId]
         )
+
       flash[:notice] = "Thanks for ordering!"
-    rescue Stripe::CardError => e
+    rescue Conekta::ProcessingError => e
       flash[:danger] = e.message
     end
-
-    transfer = Stripe::Transfer.create(
-      :amount => (@listing.price * 100).floor,
-      :currency => "usd",
-      :recipient => "self"
-      )
 
     respond_to do |format|
       if @order.save

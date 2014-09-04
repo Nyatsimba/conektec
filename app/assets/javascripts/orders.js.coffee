@@ -1,18 +1,18 @@
 jQuery ->
-  Stripe.setPublishableKey($('meta[name="stripe-key"]').attr('content'))
+  Conekta.setPublishableKey($('meta[name="conekta-key"]').attr('content'))
   payment.setupForm()
 
 payment =
   setupForm: ->
     $('#new_order').submit ->
       $('input[type=submit]').attr('disabled', true)
-      Stripe.card.createToken($('#new_order'), payment.handleStripeResponse)
+      Conekta.token.create($('#new_order'), conektaSuccessResponseHandler, conektaErrorResponseHandler)
       false
 
-  handleStripeResponse: (status, response) ->
-    if status == 200
-      $('#new_order').append($('<input type="hidden" name="stripeToken" />').val(response.id))
-      $('#new_order')[0].submit()
-    else
-      $('#stripe_error').text(response.error.message).show()
-      $('input[type=submit]').attr('disabled', false)
+  conektaSuccessResponseHandler: (response) ->
+    $('#new_order').append($('<input type="hidden" name="conektaTokenId" />').val(response.id))
+    $('#new_order')[0].submit()
+  
+  conektaErrorResponseHandler: (response) ->
+    $('.card-errors').text(response.message).show()
+    $('input[type=submit]').attr('disabled', false)

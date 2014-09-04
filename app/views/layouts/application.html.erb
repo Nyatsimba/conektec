@@ -4,9 +4,9 @@
   <title>Conektec</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag "https://js.stripe.com/v2/" %> 
+  <%= javascript_include_tag "https://s3.amazonaws.com/conektaapi/v0.3.0/js/conekta.js" %> 
   <%= csrf_meta_tags %>
-  <%= tag :meta, :name => "stripe-key", :content => ENV["STRIPE_PUBLIC_KEY"] %>
+  <%= tag :meta, :name => "conekta-key", :content => ENV["CONEKTA_PUBLIC_KEY"] %>
 </head>
 
 <body>
