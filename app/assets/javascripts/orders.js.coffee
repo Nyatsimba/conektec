@@ -9,8 +9,8 @@ payment =
       Conekta.token.create($('#new_order'), conektaSuccessResponseHandler, conektaErrorResponseHandler)
       false
 
-  conektaSuccessResponseHandler: (response) ->
-    $('#new_order').append($('<input type="hidden" name="conektaTokenId" />').val(response.id))
+  conektaSuccessResponseHandler: (token) ->
+    $('#new_order').append($('<input type="hidden" name="conektaTokenId" />').val(token.id))
     $('#new_order')[0].submit()
   
   conektaErrorResponseHandler: (response) ->

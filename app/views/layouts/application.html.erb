@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "https://s3.amazonaws.com/conektaapi/v0.3.0/js/conekta.js" %> 
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" %>
   <%= csrf_meta_tags %>
   <%= tag :meta, :name => "conekta-key", :content => ENV["CONEKTA_PUBLIC_KEY"] %>
 </head>
