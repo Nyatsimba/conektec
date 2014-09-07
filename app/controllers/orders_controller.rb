@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
         :amount => (@listing.price * 100).floor,
         :description => "Seller ID > Buyer ID: " + (@order.seller_id.to_s) +" > "+ (@order.buyer_id.to_s),
         :reference_id => (@order.listing_id),
-        :card => ""
+        :card => "tok_test_visa_4242"
         )
 
       flash[:notice] = "Thanks for ordering!"
