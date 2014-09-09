@@ -17,7 +17,7 @@ gem "figaro"
 gem 'devise'
 gem 'stripe'
 gem 'conekta'
-gem 'newrelic_rpm'
+
 
 group :production do
 	gem 'pg'

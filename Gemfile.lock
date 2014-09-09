@@ -85,7 +85,6 @@ GEM
     multi_json (1.10.1)
     multipart-post (2.0.0)
     netrc (0.7.7)
-    newrelic_rpm (3.9.4.245)
     orm_adapter (0.5.0)
     paperclip (4.2.0)
       activemodel (>= 3.0.0)
@@ -191,7 +190,6 @@ DEPENDENCIES
   figaro
   jbuilder (~> 2.0)
   jquery-rails
-  newrelic_rpm
   paperclip (~> 4.1)
   paperclip-dropbox (>= 1.1.7)
   pg
